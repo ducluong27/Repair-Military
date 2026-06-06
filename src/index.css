@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    @apply bg-slate-100 text-slate-800 antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  * {
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-slate-200;
+  }
+  .card-dark {
+    @apply bg-military-700 rounded-xl border border-military-600 text-slate-100;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-medium transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-military-600 text-white hover:bg-military-700 active:bg-military-800;
+  }
+  .btn-accent {
+    @apply btn bg-cyber-500 text-white hover:bg-cyber-600 active:bg-cyber-700;
+  }
+  .btn-outline {
+    @apply btn border border-slate-300 bg-white text-slate-700 hover:bg-slate-50;
+  }
+  .btn-danger {
+    @apply btn bg-red-500 text-white hover:bg-red-600;
+  }
+  .input {
+    @apply w-full px-3 py-2 rounded-lg border border-slate-300 bg-white text-slate-800
+           focus:outline-none focus:ring-2 focus:ring-cyber-500 focus:border-cyber-500 transition;
+  }
+  .label {
+    @apply block text-sm font-medium text-slate-700 mb-1;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 text-xs font-semibold rounded-full;
+  }
+  .scroll-thin::-webkit-scrollbar {
+    @apply w-1.5 h-1.5;
+  }
+  .scroll-thin::-webkit-scrollbar-thumb {
+    @apply bg-slate-400/50 rounded-full;
+  }
+  .scroll-thin::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+}
+
+/* Print styles for KCS receipt */
+@media print {
+  body * { visibility: hidden; }
+  .print-area, .print-area * { visibility: visible; }
+  .print-area {
+    position: absolute; left: 0; top: 0; width: 100%;
+  }
+}
